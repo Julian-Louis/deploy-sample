@@ -4,6 +4,10 @@ fastify.get('/', async (request, reply) => {
     return { hello: 'world' }
 })
 
+fastify.get('/goodbye', async (request, reply) => {
+    return { goodbye: 'world' }
+})
+
 // Run the server!
 const start = async () => {
     try {
