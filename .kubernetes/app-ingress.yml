@@ -20,7 +20,7 @@ spec:
               service:
                 name: fastify-sample
                 port:
-                  name: https
+                  name: web
   tls:
     - hosts:
         - fastify-sample.julianlouis.fr
