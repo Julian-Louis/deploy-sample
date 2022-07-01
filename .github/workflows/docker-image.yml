@@ -19,5 +19,6 @@ jobs:
       uses: docker/build-push-action@v3.0.0
       with:
         push: true
+        tags: julian-louis/fastify-sample:latest
 
       
