@@ -32,4 +32,5 @@ jobs:
         address: ${{ secrets.ARGOCD_ADDRESS }}
         token: ${{ secrets.ARGOCD_TOKEN }}
         appName: ${{ env.GITHUB_REPOSITORY }}
+        action: sync
       
