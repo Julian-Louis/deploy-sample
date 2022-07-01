@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastify-sample
+  labels:
+    app: fastify-sample
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastify-sample
+  template:
+    metadata:
+      labels:
+        app: fastify-sample
+    spec:
+      containers:
+        - name: fastify
+          image: julianlouis/fastify-sample:latest
+          ports:
+            - name: web
+              containerPort: 3000

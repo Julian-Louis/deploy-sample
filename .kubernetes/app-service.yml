@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastify-sample
+  labels:
+    app: fastify-sample
+spec:
+  ports:
+    - protocol: TCP
+      name: web
+      port: 3000
+  selector:
+    app: fastify-sample
