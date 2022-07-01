@@ -26,5 +26,10 @@ jobs:
       with:
         push: true
         tags: julianlouis/fastify-sample:latest
-
+    - name: "Sync ArgoCD Application"
+      uses: omegion/argocd-app-actions@master
+      with:
+        address: ${{ secrets.ARGOCD_ADDRESS }}
+        token: ${{ secrets.ARGOCD_TOKEN }}
+        appName: ${{ GITHUB_REPOSITORY }}
       
