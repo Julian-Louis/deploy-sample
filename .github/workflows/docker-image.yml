@@ -31,6 +31,6 @@ jobs:
       with:
         address: ${{ secrets.ARGOCD_ADDRESS }}
         token: ${{ secrets.ARGOCD_TOKEN }}
-        appName: ${{ github.repository }}
+        appName: fastify-sample
         action: sync
       
