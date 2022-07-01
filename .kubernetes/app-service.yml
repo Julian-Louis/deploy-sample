@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: fastify-sample
+  namespace: apps
   labels:
     app: fastify-sample
 spec:
