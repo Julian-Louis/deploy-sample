@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: fastify
-          image: julianlouis/fastify-sample:latest
+          image: ghcr.io/julian-louis/fastify-sample:main
           imagePullPolicy: Always
           ports:
             - name: web
