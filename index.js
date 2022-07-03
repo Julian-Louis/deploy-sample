@@ -5,7 +5,7 @@ fastify.get('/', async (request, reply) => {
 })
 
 fastify.get('/goodbye', async (request, reply) => {
-    return { goodbye: 'world' }
+    return { goodbye: 'world!' }
 })
 
 // Run the server!
