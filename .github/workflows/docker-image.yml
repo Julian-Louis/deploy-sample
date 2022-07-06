@@ -42,6 +42,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    - name: "Prepare kubernetes objects"
+      uses: int128/kustomize-action@v1
+      with:
+        kustomization: .kubernetes/staging/kustomization.yaml
+      run: find ${{ steps.kustomize.outputs.directory }}
     - name: "Sync ArgoCD Application"
       uses: omegion/argocd-app-actions@master
       with:
