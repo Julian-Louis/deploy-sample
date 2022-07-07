@@ -52,11 +52,11 @@ jobs:
           kustomize .kubernetes/staging/ > .kubernetes/to-deploy.yaml
           cat .kubernetes/to-deploy.yaml
 
-    - name: "Sync ArgoCD Application"
-      uses: omegion/argocd-app-actions@master
-      with:
-        address: ${{ secrets.ARGOCD_ADDRESS }}
-        token: ${{ secrets.ARGOCD_TOKEN }}
-        appName: fastify-sample
-        action: sync
-      
+      - name: "Sync ArgoCD Application"
+        uses: omegion/argocd-app-actions@master
+        with:
+          address: ${{ secrets.ARGOCD_ADDRESS }}
+          token: ${{ secrets.ARGOCD_TOKEN }}
+          appName: fastify-sample
+          action: sync
+
