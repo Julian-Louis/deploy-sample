@@ -42,8 +42,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: imranismail/setup-kustomize@v1
-      - run: |
+      - name: Setup Kustomize
+        uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize-version: "3.6.1"
+      - name: Update Kubernetes resources
+        run: |
           kustomize edit set image fastify-sample:${GITHUB_SHA}
           kustomize .kubernetes/staging/ > .kubernetes/to-deploy.yaml
           cat .kubernetes/to-deploy.yaml
