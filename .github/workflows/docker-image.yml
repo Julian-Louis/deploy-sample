@@ -42,11 +42,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: "Prepare kubernetes objects"
-      uses: int128/kustomize-action@v1
-      with:
-        kustomization: .kubernetes/staging/kustomization.yaml
-    - run: find ${{ steps.kustomize.outputs.directory }}
+      - uses: imranismail/setup-kustomize@v1
+      - run: |
+          kustomize edit set image fastify-sample:${GITHUB_SHA}
+          kustomize .kubernetes/staging/ > .kubernetes/to-deploy.yaml
+          cat .kubernetes/to-deploy.yaml
+
     - name: "Sync ArgoCD Application"
       uses: omegion/argocd-app-actions@master
       with:
