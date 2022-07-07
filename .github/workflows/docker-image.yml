@@ -54,6 +54,7 @@ jobs:
           ls -lah
           cd .kubernetes/staging
           kustomize edit set image fastify-sample:${GITHUB_SHA}
+          mkdir ../deploy
           kustomize build > ../deploy/build.yaml
           cat ../deploy/build.yaml
           cd ../deploy
