@@ -48,6 +48,7 @@ jobs:
           kustomize-version: "3.6.1"
       - name: Update Kubernetes resources
         run: |
+          cd .kubernetes/staging
           kustomize edit set image fastify-sample:${GITHUB_SHA}
           kustomize .kubernetes/staging/ > .kubernetes/to-deploy.yaml
           cat .kubernetes/to-deploy.yaml
