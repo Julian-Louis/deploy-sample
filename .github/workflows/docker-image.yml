@@ -51,10 +51,11 @@ jobs:
       - name: Update Kubernetes resources
         run: |
           pwd
-          ls
+          ls -lah
           cd .kubernetes/staging
           kustomize edit set image fastify-sample:${GITHUB_SHA}
-          kustomize .kubernetes/staging/ > .kubernetes/to-deploy.yaml
+          kustomize
+          kustomize > .kubernetes/to-deploy.yaml
           cat .kubernetes/to-deploy.yaml
 
       - name: "Sync ArgoCD Application"
