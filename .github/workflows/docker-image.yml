@@ -54,11 +54,12 @@ jobs:
           ls -lah
           cd .kubernetes/staging
           kustomize edit set image fastify-sample:${GITHUB_SHA}
-          kustomize build > ../to-deploy.yaml
+          kustomize build > ../deploy/build.yaml
           cat ../to-deploy.yaml
 
       - name: "Sync ArgoCD Application"
         uses: omegion/argocd-app-actions@master
+        working-directory: .kubernetes/deploy
         with:
           address: ${{ secrets.ARGOCD_ADDRESS }}
           token: ${{ secrets.ARGOCD_TOKEN }}
