@@ -9,6 +9,7 @@ fastify.get('/goodbye', async (request, reply) => {
 })
 
 
+
 // Run the server!
 const start = async () => {
     try {
